@@ -1,47 +1,38 @@
-// ASSIGNMENTS data is now stored directly on each student in students.js
-// as student.assignments — this file only contains the scan logic
-// for the Assignment module page.
-
-function handleAssignmentScan(rawId) {
+function handleAttendanceScan(rawId) {
   const id = rawId.trim();
   if (!id) return;
 
   const student = STUDENTS.find(s => s.id.toLowerCase() === id.toLowerCase());
   const card = document.getElementById("studentCard");
   const notFound = document.getElementById("notFound");
-  const completedList = document.getElementById("completedList");
-  const incompleteList = document.getElementById("incompleteList");
+
+  card.classList.remove("show");
+  notFound.classList.remove("show");
 
   if (!student) {
-    card.classList.remove("show");
     notFound.classList.add("show");
     return;
   }
 
-  notFound.classList.remove("show");
+  // Student details
   document.getElementById("sName").textContent = student.name;
+  document.getElementById("sId").textContent = student.id;
+  document.getElementById("sDept").textContent = student.dept;
+  document.getElementById("sYear").textContent = student.year;
 
-  const assignments = student.assignments || [];
-  completedList.innerHTML = "";
-  incompleteList.innerHTML = "";
+  // Attendance details
+  const att = student.attendance;
+  const absentDays = att.totalDays - att.presentDays;
+  const percentage = ((att.presentDays / att.totalDays) * 100).toFixed(1);
 
-  assignments
-    .filter(a => a.status === "completed")
-    .forEach(a => completedList.appendChild(makeItem(a.title)));
+  document.getElementById("totalDays").textContent = att.totalDays;
+  document.getElementById("presentDays").textContent = att.presentDays;
+  document.getElementById("absentDays").textContent = absentDays;
+  document.getElementById("attPercent").textContent = percentage + "%";
 
-  assignments
-    .filter(a => a.status === "incomplete")
-    .forEach(a => incompleteList.appendChild(makeItem(a.title)));
-
-  if (completedList.children.length === 0) completedList.appendChild(makeItem("None", true));
-  if (incompleteList.children.length === 0) incompleteList.appendChild(makeItem("None", true));
+  // Color the percentage — red if below 75%, green if above
+  const percentEl = document.getElementById("attPercent");
+  percentEl.className = parseFloat(percentage) >= 75 ? "att-good" : "att-low";
 
   card.classList.add("show");
-}
-
-function makeItem(text, empty) {
-  const li = document.createElement("li");
-  li.textContent = text;
-  if (empty) li.classList.add("empty");
-  return li;
 }
