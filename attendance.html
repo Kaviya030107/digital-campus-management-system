@@ -14,11 +14,10 @@
 
 <div class="container">
 
-  <div class="scan-section">
+  <form class="scan-section" onsubmit="event.preventDefault(); handleAttendanceScan(document.getElementById('scanInput').value); document.getElementById('scanInput').value='';">
     <p>Scan your barcode ID to view attendance</p>
     <input type="text" id="scanInput" autofocus placeholder="Waiting for scan...">
-    <button class="scan-btn" onclick="doScan()">Search</button>
-  </div>
+  </form>
 
   <div class="student-card" id="studentCard">
     <h3 id="sName"></h3>
@@ -57,18 +56,6 @@
 
 <script src="students.js"></script>
 <script src="attendance.js"></script>
-<script>
-  // Allow both Enter key and button click to trigger scan
-  document.getElementById("scanInput").addEventListener("keydown", function(e) {
-    if (e.key === "Enter") doScan();
-  });
-
-  function doScan() {
-    const val = document.getElementById("scanInput").value;
-    handleAttendanceScan(val);
-    document.getElementById("scanInput").value = "";
-  }
-</script>
 
 </body>
 </html>
