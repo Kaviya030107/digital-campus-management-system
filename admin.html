@@ -14,10 +14,11 @@
 
 <div class="container">
 
-  <form class="scan-section" onsubmit="event.preventDefault(); handleAdminScan(this.scanInput.value); this.scanInput.value='';">
+  <div class="scan-section">
     <p>Scan your barcode ID to view fee details</p>
-    <input type="text" name="scanInput" autofocus placeholder="Waiting for scan...">
-  </form>
+    <input type="text" id="scanInput" autofocus placeholder="Waiting for scan...">
+  <button class="scan-btn" onclick="doScan()">Search</button>
+  </div>
 
   <div class="student-card" id="studentCard">
     <h3 id="sName"></h3>
@@ -42,9 +43,20 @@
 </div>
 
 <script src="students.js"></script>
-<script src="fee.js"></script>
+<script src="fees.js"></script>
 
 
+
+<script>
+  document.getElementById("scanInput").addEventListener("keydown", function(e) {
+    if (e.key === "Enter") doScan();
+  });
+  function doScan() {
+    var val = document.getElementById("scanInput").value;
+    handleAdminScan(val);
+    document.getElementById("scanInput").value = "";
+  }
+</script>
 
 </body>
 </html>
