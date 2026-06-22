@@ -62,7 +62,7 @@ const STUDENTS = [
     ]
   },
   {
-    id: "VIT24205036", name: "Kaviya N", dept: "ECE", year: "3rd Year",
+    id: "24ITB16", name: "Kaviya N", dept: "ECE", year: "3rd Year",
     fee: {
       category: "Day Scholar",
       items: [
