@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Assignment Submission</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Assignment Submission</h1>
+  <p>Velammal Institute of Technology</p>
+</header>
+
+<div class="container">
+
+  <form class="scan-section" onsubmit="event.preventDefault(); handleAssignmentScan(this.scanInput.value); this.scanInput.value='';">
+    <p>Scan your barcode ID to view your assignment status</p>
+    <input type="text" name="scanInput" autofocus placeholder="Waiting for scan...">
+  </form>
+
+  <div class="student-card" id="studentCard">
+    <h3 id="sName"></h3>
+    <div class="assignment-columns">
+      <div>
+        <h4 class="status-heading completed-heading">Completed</h4>
+        <ul class="assignment-list" id="completedList"></ul>
+      </div>
+      <div>
+        <h4 class="status-heading incomplete-heading">Incomplete</h4>
+        <ul class="assignment-list" id="incompleteList"></ul>
+      </div>
+    </div>
+  </div>
+  <p class="not-found" id="notFound">Student not found. Try scanning again.</p>
+
+  <a class="back" href="index.html">&larr; Back to home</a>
+</div>
+
+<script src="students.js"></script>
+<script src="assignment.js"></script>
+
+
+
+</body>
+</html>

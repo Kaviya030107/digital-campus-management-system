@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Database Storage</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Database Storage</h1>
+  <p>Velammal Institute of Technology</p>
+</header>
+
+<div class="container">
+
+  <form class="scan-section" onsubmit="event.preventDefault(); handleDatabaseScan(this.scanInput.value); this.scanInput.value='';">
+    <p>Scan your barcode ID to view full student record</p>
+    <input type="text" name="scanInput" autofocus placeholder="Waiting for scan...">
+  </form>
+
+  <div class="student-card" id="studentCard">
+
+    <!-- Profile -->
+    <h3 id="sName"></h3>
+    <div class="student-meta">
+      <p>ID: <span id="sId"></span></p>
+      <p>Department: <span id="sDept"></span></p>
+      <p>Year: <span id="sYear"></span></p>
+    </div>
+
+    <hr class="divider">
+
+    <!-- Attendance -->
+    <h4 class="section-heading">Attendance</h4>
+    <div class="db-grid four">
+      <div class="db-box">
+        <span class="att-label">Total Days</span>
+        <span class="db-value" id="dbTotal"></span>
+      </div>
+      <div class="db-box">
+        <span class="att-label">Present</span>
+        <span class="db-value pass" id="dbPresent"></span>
+      </div>
+      <div class="db-box">
+        <span class="att-label">Absent</span>
+        <span class="db-value fail" id="dbAbsent"></span>
+      </div>
+      <div class="db-box">
+        <span class="att-label">Percentage</span>
+        <span class="db-value" id="dbAttPct"></span>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- Marks -->
+    <h4 class="section-heading">Marks</h4>
+    <div class="db-grid two">
+      <div class="db-box">
+        <span class="att-label">Grand Total</span>
+        <span class="db-value" id="dbMarksTotal"></span>
+      </div>
+      <div class="db-box">
+        <span class="att-label">Overall Percentage</span>
+        <span class="db-value" id="dbMarksPct"></span>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- Assignments -->
+    <h4 class="section-heading">Assignments</h4>
+    <div class="db-grid two">
+      <div class="db-box">
+        <span class="att-label">Completed</span>
+        <span class="db-value pass" id="dbCompleted"></span>
+      </div>
+      <div class="db-box">
+        <span class="att-label">Incomplete</span>
+        <span class="db-value fail" id="dbIncomplete"></span>
+      </div>
+    </div>
+
+    <!-- Fee -->
+    <div id="feeSection">
+      <hr class="divider">
+      <h4 class="section-heading">Fee Details</h4>
+      <div class="db-grid two">
+        <div class="db-box">
+          <span class="att-label">Category</span>
+          <span class="db-value" id="dbFeeCategory" style="font-size:16px"></span>
+        </div>
+        <div class="db-box">
+          <span class="att-label">Total Fee</span>
+          <span class="db-value" id="dbFeeTotal" style="font-size:16px"></span>
+        </div>
+      </div>
+      <div style="margin-top:10px">
+        <span class="fee-status" id="dbFeeStatus"></span>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="not-found" id="notFound">Student not found. Try scanning again.</p>
+  <a class="back" href="index.html">&larr; Back to home</a>
+</div>
+
+<script src="students.js"></script>
+<script src="database.js"></script>
+
+</body>
+</html>

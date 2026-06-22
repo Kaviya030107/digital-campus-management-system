@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Student Module</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Student Module</h1>
+  <p>Velammal Institute of Technology</p>
+</header>
+
+<div class="container">
+
+  <form class="scan-section" onsubmit="event.preventDefault(); handleScan(this.scanInput.value); this.scanInput.value='';">
+    <p>Scan your barcode ID to view student details</p>
+    <input type="text" name="scanInput" autofocus placeholder="Waiting for scan...">
+  </form>
+
+  <div class="student-card" id="studentCard">
+    <h3 id="sName"></h3>
+    <p>ID: <span id="sId"></span></p>
+    <p>Department: <span id="sDept"></span></p>
+    <p>Year: <span id="sYear"></span></p>
+  </div>
+  <p class="not-found" id="notFound">Student not found. Try scanning again.</p>
+
+  <a class="back" href="index.html">&larr; Back to home</a>
+</div>
+
+<script src="students.js"></script>
+<script src="scan.js"></script>
+
+
+</body>
+</html>

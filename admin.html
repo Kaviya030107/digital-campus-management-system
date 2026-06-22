@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Admin Module</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Admin Module</h1>
+  <p>Velammal Institute of Technology</p>
+</header>
+
+<div class="container">
+
+  <form class="scan-section" onsubmit="event.preventDefault(); handleAdminScan(this.scanInput.value); this.scanInput.value='';">
+    <p>Scan your barcode ID to view fee details</p>
+    <input type="text" name="scanInput" autofocus placeholder="Waiting for scan...">
+  </form>
+
+  <div class="student-card" id="studentCard">
+    <h3 id="sName"></h3>
+    <div class="student-meta">
+      <p>ID: <span id="sId"></span></p>
+      <p>Department: <span id="sDept"></span></p>
+      <p>Year: <span id="sYear"></span></p>
+    </div>
+    <hr class="divider">
+    <p class="fee-category" id="sCategory"></p>
+    <ul class="fee-list" id="feeList"></ul>
+    <div class="fee-total-row">
+      <span>Total</span>
+      <span id="feeTotal"></span>
+    </div>
+    <span class="fee-status" id="feeStatus"></span>
+  </div>
+  <p class="not-found" id="notFound">Student not found. Try scanning again.</p>
+  <p class="not-found" id="noFeeData">Fee details not added for this student yet.</p>
+
+  <a class="back" href="index.html">&larr; Back to home</a>
+</div>
+
+<script src="students.js"></script>
+<script src="fee.js"></script>
+
+
+
+</body>
+</html>

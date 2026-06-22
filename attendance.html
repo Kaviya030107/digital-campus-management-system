@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Attendance Management</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Attendance Management</h1>
+  <p>Velammal Institute of Technology</p>
+</header>
+
+<div class="container">
+
+  <form class="scan-section" onsubmit="event.preventDefault(); handleAttendanceScan(this.scanInput.value); this.scanInput.value='';">
+    <p>Scan your barcode ID to view attendance</p>
+    <input type="text" name="scanInput" autofocus placeholder="Waiting for scan...">
+  </form>
+
+  <div class="student-card" id="studentCard">
+    <h3 id="sName"></h3>
+    <div class="student-meta">
+      <p>ID: <span id="sId"></span></p>
+      <p>Department: <span id="sDept"></span></p>
+      <p>Year: <span id="sYear"></span></p>
+    </div>
+
+    <hr class="divider">
+
+    <div class="att-grid">
+      <div class="att-box">
+        <span class="att-label">Total Working Days</span>
+        <span class="att-value" id="totalDays"></span>
+      </div>
+      <div class="att-box">
+        <span class="att-label">Present Days</span>
+        <span class="att-value present" id="presentDays"></span>
+      </div>
+      <div class="att-box">
+        <span class="att-label">Absent Days</span>
+        <span class="att-value absent" id="absentDays"></span>
+      </div>
+      <div class="att-box">
+        <span class="att-label">Attendance </span>
+        <span class="att-value" id="attPercent"></span>
+      </div>
+    </div>
+  </div>
+
+  <p class="not-found" id="notFound">Student not found. Try scanning again.</p>
+  <a class="back" href="index.html">&larr; Back to home</a>
+</div>
+
+<script src="students.js"></script>
+<script src="attendance.js"></script>
+
+
+
+</body>
+</html>

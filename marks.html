@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Marks Management</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Marks Management</h1>
+  <p>Velammal Institute of Technology</p>
+</header>
+
+<div class="container">
+
+  <form class="scan-section" onsubmit="event.preventDefault(); handleMarksScan(this.scanInput.value); this.scanInput.value='';">
+    <p>Scan your barcode ID to view marks</p>
+    <input type="text" name="scanInput" autofocus placeholder="Waiting for scan...">
+  </form>
+
+  <div class="student-card" id="studentCard">
+    <h3 id="sName"></h3>
+    <div class="student-meta">
+      <p>ID: <span id="sId"></span></p>
+      <p>Department: <span id="sDept"></span></p>
+      <p>Year: <span id="sYear"></span></p>
+    </div>
+
+    <hr class="divider">
+
+    <table class="marks-table">
+      <thead>
+        <tr>
+          <th>Subject</th>
+          <th>Internal</th>
+          <th>External</th>
+          <th>Total</th>
+          <th>Grade</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="marksBody"></tbody>
+    </table>
+
+    <div class="marks-summary">
+      <div class="summary-box">
+        <span class="att-label">Grand Total</span>
+        <span class="att-value" id="grandTotal"></span>
+      </div>
+      <div class="summary-box">
+        <span class="att-label">Overall %</span>
+        <span class="att-value" id="overallPct"></span>
+      </div>
+      <div class="summary-box">
+        <span class="att-label">Overall Grade</span>
+        <span class="att-value" id="overallGrade"></span>
+      </div>
+    </div>
+  </div>
+
+  <p class="not-found" id="notFound">Student not found. Try scanning again.</p>
+  <a class="back" href="index.html">&larr; Back to home</a>
+</div>
+
+<script src="students.js"></script>
+<script src="marks.js"></script>
+
+
+
+</body>
+</html>
