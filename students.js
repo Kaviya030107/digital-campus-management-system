@@ -1,6 +1,6 @@
 const STUDENTS = [
   {
-    id: "VIT24205042", name: "Maha Varshini S", dept: "CSE", year: "3rd Year",
+    id: "24ITB19", name: "Maha Varshini S", dept: "CSE", year: "3rd Year",
     fee: {
       category: "Hosteller",
       items: [
@@ -24,7 +24,7 @@ const STUDENTS = [
     ]
   },
   {
-    id: "VIT24205012", name: "Dhanalakshmi R", dept: "CSE", year: "3rd Year",
+    id: "24ITB05", name: "Dhanalakshmi R", dept: "CSE", year: "3rd Year",
     fee: {
       category: "Hosteller",
       items: [
@@ -62,7 +62,7 @@ const STUDENTS = [
     ]
   },
   {
-    id: "VIT24205036", name: "Kaviya N", dept: "ECE", year: "3rd Year",
+    id: "24ITB16", name: "Kaviya N", dept: "ECE", year: "3rd Year",
     fee: {
       category: "Day Scholar",
       items: [
@@ -85,7 +85,7 @@ const STUDENTS = [
     ]
   },
   {
-    id: "VIT24205080", name: "Vasanthi. J", dept: "IT", year: "3rd Year",
+    id: "24ITB40", name: "Vasanthi. J", dept: "IT", year: "3rd Year",
     fee: {
       category: "Hosteller",
       items: [
